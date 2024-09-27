@@ -1,0 +1,5 @@
+# Database
+# ------------------------------------------------------------------------------
+PARSE_V1_DB_URL=jdbc:mysql://mysql:3306/parse_logs
+PARSE_V1_DB_USER=harjit
+PARSE_V1_DB_PASSWORD=gyat
