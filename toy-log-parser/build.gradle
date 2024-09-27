@@ -1,0 +1,103 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+	id 'io.freefair.lombok' version '8.6'
+	id 'jacoco'
+}
+
+group = 'com.project'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+springBoot {
+  mainClass = 'com.project.toy_log_parser.ToyLogParserApplication'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.kafka:spring-kafka'
+	
+	compileOnly 'org.projectlombok:lombok'
+	
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+test {
+    finalizedBy jacocoTestReport
+
+    testLogging {
+       events "failed", "passed", "skipped", "standardError","standardOut", "started"
+    }
+}
+
+jacocoTestReport {
+	dependsOn test
+
+	reports {
+        xml {
+            enabled true
+        }
+
+        html {
+            enabled true
+        }
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: [
+                    '**/config/**',
+                    '**/ToyLogParserApplication*'])
+        })
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.5
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['com.project.toy_log_parser.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
+}
