@@ -1,0 +1,27 @@
+name: Semanticore
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  semanticore:
+    runs-on: ubuntu-latest
+    name: Semanticore
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.*'
+      - name: Semanticore
+        run: go run github.com/aoepeople/semanticore@v0
+        env:
+          SEMANTICORE_TOKEN: ${{secrets.PAT}}
+          GIT_AUTHOR_NAME: 'Harjit Brar'
+          GIT_AUTHOR_EMAIL: 'workandresearchbrar@gmail.com'
+          GIT_COMMITTER_NAME: 'Harjit Brar'
+          GIT_COMMITTER_EMAIL: 'workandresearchbrar@gmail.com'

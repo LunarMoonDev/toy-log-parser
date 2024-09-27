@@ -1,0 +1,36 @@
+version: '3'
+
+volumes:
+  local_gradle_dependencies: {}
+  root_gradle_dependencies: {}
+  local_vscode_extensions: {}
+
+services:
+  spring:
+    build:
+      context: .
+      dockerfile: ./compose/local/spring/Dockerfile
+      args:
+        USERNAME: vscode
+        USER_GROUP_NAME: workspace
+        USER_UID: 1019
+        USER_GID: 1019
+    image: toy_log_parser_java
+    container_name: toy_log_parser_java
+    volumes:
+      - .:/app:z
+      - local_gradle_dependencies:/home/vscode/.gradle/caches
+      - root_gradle_dependencies:/root/.gradle/caches
+      - local_vscode_extensions:/home/vscode/.vscode-server/extensions
+    env_file:
+      - ./.envs/.local/.spring
+    ports:
+      - '8080:8080'
+    command: ["sleep", "infinity"]
+    networks:
+      - project-network
+
+networks:
+  project-network:
+    name: parse-network
+    external: true
