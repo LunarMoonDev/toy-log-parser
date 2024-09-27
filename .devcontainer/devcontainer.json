@@ -1,0 +1,46 @@
+{
+    "name": "parse_logs_devs",
+    "dockerComposeFile": [
+        "../local.yml"
+    ],
+    "init": true,
+    "mounts": [
+        {
+            "source": "./.devcontainer/bash_history",
+            "target": "/home/vscode/.bash_history",
+            "type": "bind"
+        },
+        {
+            "source": "~/.ssh",
+            "target": "/home/vscode/.ssh",
+            "type": "bind"
+        }
+    ],
+    // Tells devcontainer.json supporting services / tools whether they should run
+    // /bin/sh -c "while sleep 1000; do :; done" when starting the container instead of the container’s default command
+    "overrideCommand": false,
+    "service": "spring",
+    "remoteUser": "vscode",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "settings": {
+
+            },
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vmware.vscode-boot-dev-pack",
+                "vscjava.vscode-gradle",
+                "redhat.java",
+                "naco-siren.gradle-language",
+                "george-alisson.html-preview-vscode"
+            ]
+        }
+    },
+    // Uncomment the next line if you want start specific services in your Docker Compose config.
+    // "runServices": [],
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+    // Uncomment the next line to run commands after the container is created.
+    "postCreateCommand": "cat .devcontainer/bashrc.override.sh >> /home/vscode/.bashrc"
+}
