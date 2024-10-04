@@ -1,0 +1,11 @@
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_8mjeuvw8fcfnq44hjzxn3jutg.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app/toy-log-parser ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_8ec5dao1l7mnkbx67sbiakptv.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app/toy-log-parser ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_asnb4mk735z4fawiii6igyvaf.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:39813 @/tmp/cp_duav0actfvz0ynn68ln5h4abr.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app/toy-log-parser ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:46667 @/tmp/cp_b1uxb33jc8bzz0rtgqvtacgy.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:42849 @/tmp/cp_c684mu2cbqib76z0u4qaf2rjn.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app/toy-log-parser ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:36677 @/tmp/cp_b1uxb33jc8bzz0rtgqvtacgy.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:40609 @/tmp/cp_58k9ybs7jalvvq6ct521higbv.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app/toy-log-parser ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:42289 @/tmp/cp_58k9ybs7jalvvq6ct521higbv.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ cd /app/toy-log-parser ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:34161 @/tmp/cp_58k9ybs7jalvvq6ct521higbv.argfile com.project.toy_log_parser.ToyLogParserApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_3ejfn4ivrz320xmr26xcsq66d.argfile com.project.toy_log_parser.ToyLogParserApplication 
