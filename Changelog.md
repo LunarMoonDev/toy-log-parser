@@ -1,5 +1,15 @@
 # Changelog
 
+## Version v0.3.0 (2024-10-07)
+
+### Features
+
+- add unit test (b240a5df)
+
+### Refactoring
+
+- delete bootstrap unit test class (0409300a)
+
 ## Version v0.2.0 (2024-10-04)
 
 ### Features
